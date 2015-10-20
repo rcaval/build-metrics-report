@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'nvd3'
   ]
   .config ($routeProvider) ->
     $routeProvider
@@ -25,4 +26,3 @@ angular
         controllerAs: 'main'
       .otherwise
         redirectTo: '/'
-
