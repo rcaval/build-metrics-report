@@ -7,7 +7,10 @@ version 0.12.1.
 
 ## Build & development
 
+
 Run `grunt` for building and `grunt serve` for preview.
+
+It might require you to install the compass gem.
 
 ## Testing
 
@@ -26,6 +29,7 @@ Charts:
    - daily
    - 1 line per job
    - single line trend
+   - Weighted: the earlier the higher
 
  - MTTF last 14 days trend
    -
@@ -36,3 +40,6 @@ Summary (last 2 weeks)
 - build time
   - AVG, Std dev
 - Success/Failure %
+
+
+- Relate area of code with break
