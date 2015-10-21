@@ -25,5 +25,10 @@ angular
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
         controllerAs: 'main'
+     
+      .when '/pivot',
+        templateUrl: 'views/pivot.html'
+        controller: 'PivotCtrl'
+        controllerAs: 'pivot'
       .otherwise
         redirectTo: '/'

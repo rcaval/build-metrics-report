@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+    <link rel="stylesheet" href="bower_components/pivottable/dist/pivot.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -41,6 +42,7 @@
 
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
+              <li><a href="#/pivot">Pivot Table</a></li>
             </ul>
           </div>
         </div>
@@ -84,6 +86,8 @@
     <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="bower_components/jqueryui/jquery-ui.js"></script>
+    <script src="bower_components/pivottable/dist/pivot.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -91,6 +95,10 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/pivot.js"></script>
+        <script src="scripts/directives/pivottable.js"></script>
+        <script src="scripts/services/pivot.js"></script>
+        <script src="scripts/services/pivotservice.js"></script>
         <!-- endbuild -->
 </body>
 </html>

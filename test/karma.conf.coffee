@@ -31,6 +31,8 @@ module.exports = (config) ->
       'bower_components/angular-nvd3/dist/angular-nvd3.js'
       'bower_components/lodash/lodash.js'
       'bower_components/angular-ui-grid/ui-grid.js'
+      'bower_components/jqueryui/jquery-ui.js'
+      'bower_components/pivottable/dist/pivot.js'
       'bower_components/angular-mocks/angular-mocks.js'
       # endbower
       # bower:coffee
