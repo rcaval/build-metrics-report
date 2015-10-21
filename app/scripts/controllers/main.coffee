@@ -8,12 +8,17 @@
  # Controller of the buildMetricsReportApp
 ###
 angular.module 'buildMetricsReportApp'
-  .controller 'MainCtrl', ($scope) ->
+  .controller 'MainCtrl', ($scope, $http) ->
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
       'Karma'
     ]
+
+    $http.get('data/1-compile.json').then (res) ->
+      _.forEach res.data.builds, (build) ->
+        build.date = new Date build.timestamp
+      $scope.jsonData = res.data.builds
 
     $scope.options = chart:
       type: 'stackedAreaChart'
