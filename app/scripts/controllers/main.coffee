@@ -43,15 +43,23 @@ angular.module 'buildMetricsReportApp'
         Math.floor(avg)
 
       data.averageDuration = reduceAverageDuration data.sourceSet
+      data
+      
+    appendDateDimensions = (build) ->
+      build.date = new Date(build.timestamp)
+      build.month = d3.time.format('%Y-%m') build.date
+      build.week = d3.time.format('%Y-%U') build.date
+      build
 
     $http.get('data/1-compile.json').then (res) ->
       $scope.jsonData = res.data.builds
       $scope.dailyData = _($scope.jsonData)
+        .map appendDateDimensions
         .groupBy (build) -> shortDate new Date(build.timestamp)
         .mapValues (buildGroups, key) ->
           timestamp: +shortDate.parse key
           sourceSet: buildGroups
-        .forEach appendAverageDuration
+        .map appendAverageDuration
         .value()
 
       avgDurations = _($scope.dailyData)
