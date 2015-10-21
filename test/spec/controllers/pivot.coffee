@@ -16,5 +16,4 @@ describe 'Controller: PivotCtrl', ->
       # place here mocked dependencies
     }
 
-  it 'should attach a list of awesomeThings to the scope', ->
-    expect(PivotCtrl.awesomeThings.length).toBe 3
+  
