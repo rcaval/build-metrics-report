@@ -10,7 +10,7 @@ angular.module 'buildMetricsReportApp'
   .directive 'pivotTable', ->
     scope: { datasource: '=' }
     link: (scope, element, attrs) ->
-      scope.datasource.$promise.then (result) ->
+      scope.datasource.then (result) ->
         $(element).pivotUI(
           result,
           scope.$eval(attrs.pivotTable))

@@ -5,10 +5,10 @@ class PivotCtrl
 
   @$inject = [
     '$scope'
-    'pivotService'
+    'jenkinsDataService'
   ]
 
-  constructor: ($scope, pivotService) ->
-    @pivotService = pivotService
+  constructor: ($scope, jenkinsDataService) ->
+    @data = jenkinsDataService.data
 
 app.controller 'PivotCtrl', PivotCtrl
