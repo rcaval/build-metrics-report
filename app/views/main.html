@@ -1,9 +1,16 @@
 <div class="row">
   <h4>Build Time Trends</h4>
+
+  <div class="panel panel-default">
+    <div pivot-table datasource="weeklyBuildTime.data" options="weeklyBuildTime.options"></div>
+  </div>
+
   <p>
      <nvd3 options="options" data="data"></nvd3>
   </p>
   <div ui-grid="{data: jsonData}" class="grid">
   </div>
+
+
 
 </div>

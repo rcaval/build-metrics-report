@@ -8,7 +8,15 @@
  # Controller of the buildMetricsReportApp
 ###
 angular.module 'buildMetricsReportApp'
-  .controller 'MainCtrl', ($scope, $http) ->
+  .controller 'MainCtrl', ($scope, $http, jenkinsDataService) ->
+    $scope.weeklyBuildTime =
+      data: jenkinsDataService.data
+      options:
+        rows: ['segment']
+        cols: ['week']
+        vals: []
+        rendererName: 'Area Chart'
+
     shortDate = d3.time.format('%Y-%m-%d');
     $scope.jsonData = []
 
@@ -44,7 +52,7 @@ angular.module 'buildMetricsReportApp'
 
       data.averageDuration = reduceAverageDuration data.sourceSet
       data
-      
+
     appendDateDimensions = (build) ->
       build.date = new Date(build.timestamp)
       build.month = d3.time.format('%Y-%m') build.date

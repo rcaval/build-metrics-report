@@ -8,15 +8,16 @@
 ###
 angular.module 'buildMetricsReportApp'
   .directive 'pivotTable', ->
-    scope: { datasource: '=' }
+    scope: { datasource: '=', options: '=' }
     link: (scope, element, attrs) ->
       scope.datasource.then (result) ->
         renderers = $.extend($.pivotUtilities.renderers,
                     $.pivotUtilities.c3_renderers);
 
-        options = scope.$eval(attrs.pivotTable))
+        options = scope.options
         options = _.merge(options, { renderers: renderers })
 
         $(element).pivotUI(
           result,
           options
+          )
