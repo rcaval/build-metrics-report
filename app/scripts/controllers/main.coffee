@@ -9,13 +9,23 @@
 ###
 angular.module 'buildMetricsReportApp'
   .controller 'MainCtrl', ($scope, $http, jenkinsDataService) ->
+    aggregators = $.pivotUtilities.aggregatorTemplates
+    dateFormat = $.pivotUtilities.derivers.dateFormat
     $scope.weeklyBuildTime =
       data: jenkinsDataService.data
       options:
+        rendererName: 'Area Chart'
         rows: ['segment']
         cols: ['week']
         vals: []
-        rendererName: 'Area Chart'
+        derivedAttributes:
+          "Duration" :  dateFormat("Build Time (avg)", "%Mmin $Ss", true),
+        aggregators:
+          "Build Time (avg)": ->
+            aggregators.average()(['duration'])
+
+
+
 
     shortDate = d3.time.format('%Y-%m-%d');
     $scope.jsonData = []

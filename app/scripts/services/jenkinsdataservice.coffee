@@ -8,6 +8,7 @@ class JenkinsDataService
     build.date = new Date(build.timestamp)
     build.month = d3.time.format('%Y-%m') build.date
     build.week = d3.time.format('%Y-%U') build.date
+    build.day = d3.time.format('%Y-%m-%d') build.date
     build
 
   constructor: ($resource, $q) ->
@@ -16,7 +17,7 @@ class JenkinsDataService
 
     url = 'data/:job.json'
 
-    promises = _(jobs).map (jobName) ->
+    promises = _(jobs).map (jobName, jobIndex) ->
       $resource(url, {job: jobName}, {
         query:
           isArray: true
@@ -26,8 +27,9 @@ class JenkinsDataService
       }
       ).query((builds) ->
         _(builds)
-        .each (build) ->
+        .each (build, index) ->
           build.segment = jobName
+          build.order = jobIndex
         .each appendDateDimensions
         .value()
       ).$promise
