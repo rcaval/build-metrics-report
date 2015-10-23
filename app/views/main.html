@@ -1,12 +1,29 @@
 <div class="row">
-  <h4>Build Time</h4>
   <div class="panel panel-default">
-    <div class="panel" pivot-table datasource="data" options="weeklyBuildTime.options" pivot-ui="false"></div>
+     <div class="panel-heading">Build Time</div>
+    <div class="panel-body" pivot-table datasource="data" options="weeklyBuildTime.options" pivot-ui="false"></div>
   </div>
 
-  <h4>Build Success Rate</h4>
-  <div class="panel panel-default">
-    <div class="panel" pivot-table datasource="data" options="weeklySucessRate.options" pivot-ui="false"></div>
-  </div>
 
+  <div class="panel panel-default">
+    <div class="panel-heading">Build Success Rate </div>
+    <div class="panel-body">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">Component</div>
+          <div class="panel-body" pivot-table datasource="data" options="weeklySucessRate.compile" pivot-ui="false"></div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">QA Deploy</div>
+          <div class="panel-body" pivot-table datasource="data" options="weeklySucessRate.qaDeploy" pivot-ui="false"></div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">Functional</div>
+          <div class="panel-body" pivot-table datasource="data" options="weeklySucessRate.functional" pivot-ui="false"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -40,7 +40,7 @@ angular.module 'buildMetricsReportApp'
             type: 'area-step'
           tooltip: grouped: true
 
-    $scope.weeklySucessRate = options:
+    $scope.weeklySucessRate = defaultOptions:
       renderer: $.pivotUtilities.c3_renderers['Stacked Bar Chart']
       rows: ['segment', 'result']
       cols: ['week']
@@ -53,15 +53,17 @@ angular.module 'buildMetricsReportApp'
       rendererOptions:
         c3:
           size:
-            height: 350,
-            width: 700
+            height: 150,
+            width: 300
           axis:
             y:
               tick: format: numberFormat(digitsAfterDecimal:1, scaler: 100, suffix: "%")
               max: 1
               default: [0,1]
               padding: top:0
-            x: label: ''
+            x:
+              label: ''
+              padding: left: 0
           grid:
             y: show: true
           data:
@@ -69,5 +71,14 @@ angular.module 'buildMetricsReportApp'
           bar: width: ratio: 1
           tooltip: grouped: true
           legend: show: false
+
+    successRateOptionsFor = (segment) ->
+      _.assign {}, $scope.weeklySucessRate.defaultOptions,
+        filter: (build) ->
+          build.segment == segment
+
+    $scope.weeklySucessRate.compile = successRateOptionsFor '1-compile'
+    $scope.weeklySucessRate.functional = successRateOptionsFor '2-functional-tests'
+    $scope.weeklySucessRate.qaDeploy = successRateOptionsFor '3-qa-deploy'
 
     return
