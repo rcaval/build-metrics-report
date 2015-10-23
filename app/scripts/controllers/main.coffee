@@ -71,6 +71,7 @@ angular.module 'buildMetricsReportApp'
           bar: width: ratio: 1
           tooltip: grouped: true
           legend: show: false
+          color: pattern: [ "#109618", "#dc3912", "#333", "#ff9900" ]
 
     successRateOptionsFor = (segment) ->
       _.assign {}, $scope.weeklySucessRate.defaultOptions,
