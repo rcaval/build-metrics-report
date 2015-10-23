@@ -27,7 +27,10 @@ Charts:
 
  - MTTF last 7 days trend
  - MTTR last 7 days trend
+ - Variance/std dev of build time per segment
  - Heat map success failure per segment
+
+
 Summary (last 2 weeks)
 - build time
   - AVG, Std dev
@@ -35,3 +38,10 @@ Summary (last 2 weeks)
 
 
 - Relate area of code with break
+
+
+Tech debt:
+ - Parameterize job names
+ - Charts per job to use job names
+ - Hook real jenkins endpoint
+ - Apply other snap api
