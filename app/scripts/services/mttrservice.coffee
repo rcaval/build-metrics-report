@@ -9,7 +9,7 @@
 ###
 angular.module 'buildMetricsReportApp'
   .service 'mttrService', ->
-    calculateAllTime: (builds, metricName, notInState) ->
+    calculateAllTime: (builds, metricName, state) ->
       lastTimeInState = 0;
       occurences = 0
       totalTimeInState = 0
@@ -21,7 +21,7 @@ angular.module 'buildMetricsReportApp'
         metric.lastTimeInState = 0
         metric.value = 0
         metric.occurences=0
-        if build.result != notInState
+        if build.result != state
           return if lastTimeInState !=0
 
           metric.lastTimeInState = lastTimeInState = build.timestamp
