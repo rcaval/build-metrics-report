@@ -9,28 +9,38 @@
 ###
 angular.module 'buildMetricsReportApp'
   .service 'mttrService', ->
-    calculateAllTimeMTTR: (builds) ->
-      lastFailedBuildTime = 0;
-      failedBuildCount = 0
-      totalFailedTime = 0
+    calculateAllTime: (builds, metricName, notInState) ->
+      lastTimeInState = 0;
+      occurences = 0
+      totalTimeInState = 0
 
       _(builds).sortBy('timestamp').each((build) ->
-        build.lastFailedBuildTime = 0
-        build.mttr = 0
-        build.failedBuildCount=0
-        if build.result != 'SUCCESS'
-          return if lastFailedBuildTime !=0
+        metric = {}
+        build[metricName] = metric
 
-          build.lastFailedBuildTime = lastFailedBuildTime = build.timestamp
+        metric.lastTimeInState = 0
+        metric.value = 0
+        metric.occurences=0
+        if build.result != notInState
+          return if lastTimeInState !=0
+
+          metric.lastTimeInState = lastTimeInState = build.timestamp
           return
 
-        return if lastFailedBuildTime == 0
+        return if lastTimeInState == 0
 
-        failedBuildCount++
+        occurences++
 
-        build.failedBuildCount = failedBuildCount
-        totalFailedTime += build.timestamp - lastFailedBuildTime
-        build.mttr = if totalFailedTime == 0 then 0 else totalFailedTime/failedBuildCount
+        metric.occurences = occurences
+        totalTimeInState += build.timestamp - lastTimeInState
+        metric.value = if totalTimeInState == 0 then 0 else totalTimeInState/occurences
 
-        lastFailedBuildTime = 0
+        lastTimeInState = 0
+
       ).value()
+
+    calculateAllTimeMTTR: (builds) ->
+      @calculateAllTime(builds, 'allTimeMTTR', 'SUCCESS')
+
+    calculateAllTimeMTTF: (builds) ->
+      @calculateAllTime builds, 'allTimeMTTR', 'FAILURE'

@@ -20,7 +20,7 @@ describe 'Service: mttrService', ->
 
   runAndVerifyResult = (builds, expectedTimes) ->
     mttrService.calculateAllTimeMTTR builds
-    expect(_.map(builds, 'mttr')).toEqual expectedTimes
+    expect(_.map(builds, 'allTimeMTTR.value')).toEqual expectedTimes
 
   it 'should_return_0_second_when_first_success_build', ->
     runAndVerifyResult [FIRST_BUILD], [0]
@@ -57,7 +57,5 @@ describe 'Service: mttrService', ->
     builds = [SIXTH_BUILD, FIFTH_BUILD, FOURTH_BUILD, THIRD_BUILD, SECOND_BUILD, FIRST_BUILD]
 
     mttrService.calculateAllTimeMTTR builds
-
-    mttrFromSortedBuilds = _(builds).sortBy('timestamp').map('mttr').value()
-
+    mttrFromSortedBuilds = _(builds).sortBy('timestamp').map('allTimeMTTR.value').value()
     expect(mttrFromSortedBuilds).toEqual [ 0, 0, 0, 2000, 0, 1500 ]
