@@ -25,9 +25,9 @@ Charts:
  - [done] build time trend
  - [done] build success/failure trend
 
- - MTTF last 14 days trend
- - MTTR last 4 days trend
-
+ - MTTF last 7 days trend
+ - MTTR last 7 days trend
+ - Heat map success failure per segment
 Summary (last 2 weeks)
 - build time
   - AVG, Std dev
