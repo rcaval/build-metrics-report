@@ -13,7 +13,7 @@ class JenkinsDataService
 
   constructor: ($resource, $q) ->
     deferred = $q.defer();
-    jobs = ['1-compile', '2-functional-tests', '3-qa-deploy', '4-automated-integration']
+    jobs = ['1-compile', '2-functional-tests', '3-qa-deploy']
 
     url = 'data/:job.json'
 

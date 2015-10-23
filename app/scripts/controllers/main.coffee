@@ -18,13 +18,25 @@ angular.module 'buildMetricsReportApp'
         renderer: $.pivotUtilities.c3_renderers['Area Chart']
         rows: ['segment']
         cols: ['week']
-        aggregator: aggregators.average()(['duration'])
+        aggregatorName: "Duration"
+        aggregator: aggregators.average(dateFormat('%M:%s'))(['duration'])
         rendererOptions:
           c3:
             size:
               height: 350,
               width: 700
-
+            axis:
+              y:
+                label: 'Duration'
+                tick:
+                  format: (d) ->
+                    d3.time.format('%Mm %Ss') new Date(d)
+              x:
+                label: ''
+            grid:
+              y: show: true
+            data:
+              type: 'area'
 
 
     shortDate = d3.time.format('%Y-%m-%d');
