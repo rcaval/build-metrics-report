@@ -16,8 +16,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.grid',
-    'nvd3'
+    'ui.grid'
   ]
   .config ($routeProvider) ->
     $routeProvider
