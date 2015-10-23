@@ -30,8 +30,8 @@ angular.module 'buildMetricsReportApp'
             y:
               label: 'Duration'
               tick:
-                format: (d) ->
-                  d3.time.format('%Mm %Ss') new Date(d)
+                values: d3.range(0, 30*60000, 2*60000)
+                format: (d) -> d3.time.format('%Mm %Ss') new Date(d)
             x:
               label: ''
           grid:
@@ -52,15 +52,11 @@ angular.module 'buildMetricsReportApp'
           $.pivotUtilities.sortAs ["SUCCESS","FAILURE", "ABORTED"]
       rendererOptions:
         c3:
-          size:
-            height: 150,
-            width: 300
+          size: height: 150, width: 300
           axis:
             y:
               tick: format: numberFormat(digitsAfterDecimal:1, scaler: 100, suffix: "%")
-              max: 1
-              default: [0,1]
-              padding: top:0
+              padding: top: 0
             x:
               label: ''
               padding: left: 0

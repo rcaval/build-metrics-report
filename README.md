@@ -22,18 +22,10 @@ Running `grunt test` will run the unit tests with karma.
 Build Metrics
 
 Charts:
- - build time trend
-   - [done] day avg; stacked; component, ISO, fusion, ITA
-
- - build success/failure trend
-   - daily
-   - 1 line per job
-   - single line trend
-   - Weighted: the earlier the higher
+ - [done] build time trend
+ - [done] build success/failure trend
 
  - MTTF last 14 days trend
-   -
-
  - MTTR last 4 days trend
 
 Summary (last 2 weeks)
