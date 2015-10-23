@@ -23,7 +23,7 @@ Build Metrics
 
 Charts:
  - build time trend
-   - day avg; stacked; component, ISO, fusion, ITA
+   - [done] day avg; stacked; component, ISO, fusion, ITA
 
  - build success/failure trend
    - daily
