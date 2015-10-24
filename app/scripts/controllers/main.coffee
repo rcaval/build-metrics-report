@@ -18,7 +18,7 @@ angular.module 'buildMetricsReportApp'
           size: height: 350, width: 700
           axis:
             y:
-              label: 'Duration'
+              # label: 'Duration'
               tick:
                 values: d3.range(0, 30*60000, 2*60000)
                 format: (d) -> d3.time.format('%Mm %Ss') new Date(d)
@@ -100,7 +100,7 @@ angular.module 'buildMetricsReportApp'
           size: height: 350, width: 700
           axis:
             y:
-              label: 'MTTR (Hours)'
+              label: 'Hours'
               tick:
                 # values: d3.range(0, 6*60 * 60 *1000, 30 * 60 * 1000)
                 format: (d) -> Math.floor(d / (60 * 60 *1000))
