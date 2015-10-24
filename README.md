@@ -31,6 +31,7 @@ Charts:
   - Parameterize job names
   - Charts per job to use job names and ngRepeat
   - Hook real jenkins endpoint
+  - allBuilds vs last 100 builds
   - Apply other snap api
 
 Nice to have visualizations
