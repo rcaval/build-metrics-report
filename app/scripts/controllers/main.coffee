@@ -1,19 +1,11 @@
 'use strict'
 
-###*
- # @ngdoc function
- # @name buildMetricsReportApp.controller:MainCtrl
- # @description
- # # MainCtrl
- # Controller of the buildMetricsReportApp
-###
 angular.module 'buildMetricsReportApp'
   .controller 'MainCtrl', ($scope, $http, jenkinsDataService) ->
     aggregatorsTamplates = $.pivotUtilities.aggregatorTemplates
     aggregators = $.pivotUtilities.aggregators
     dateFormat = $.pivotUtilities.derivers.dateFormat
     numberFormat = $.pivotUtilities.numberFormat
-
     $scope.data = jenkinsDataService.data
     $scope.weeklyBuildTime = options:
       renderer: $.pivotUtilities.c3_renderers['Area Chart']
@@ -23,9 +15,7 @@ angular.module 'buildMetricsReportApp'
       aggregator: aggregatorsTamplates.average(dateFormat('%M:%s'))(['duration'])
       rendererOptions:
         c3:
-          size:
-            height: 350,
-            width: 700
+          size: height: 350, width: 700
           axis:
             y:
               label: 'Duration'
@@ -79,5 +69,25 @@ angular.module 'buildMetricsReportApp'
     $scope.weeklySucessRate.compile = successRateOptionsFor '1-compile'
     $scope.weeklySucessRate.functional = successRateOptionsFor '2-functional-tests'
     $scope.weeklySucessRate.qaDeploy = successRateOptionsFor '3-qa-deploy'
+
+    $scope.weekly7DaysMTTR = options:
+      renderer: $.pivotUtilities.c3_renderers['Line Chart']
+      cols: ["week"]
+      rows: ["segment"]
+      aggregator: aggregators.Maximum(['7 Days MTTR'])
+      rendererOptions:
+        c3:
+          size: height: 350, width: 700
+          axis:
+            y:
+              tick:
+                values: d3.range(0, 6*60 * 60 *1000, 30 * 60 * 1000)
+                format: (d) -> d3.time.format("%X") new Date(2012, 0, 0, 0, 0,0, d)
+              padding: bottom: 0
+            x:
+              padding: left: 0
+          tooltip: grouped: true
+          grid:
+            y: show: true
 
     return
