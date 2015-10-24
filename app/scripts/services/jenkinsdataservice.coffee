@@ -35,6 +35,7 @@ class JenkinsDataService
 
         mttrService.calculateAllTimeMTTR result
         mttrService.calculateAllTimeMTTF result
+        mttrService.calculate7DaysMTTR result
 
       ).$promise
     .value()

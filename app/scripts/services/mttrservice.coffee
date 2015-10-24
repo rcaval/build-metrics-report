@@ -9,7 +9,7 @@
 ###
 angular.module 'buildMetricsReportApp'
   .service 'mttrService', ->
-    calculateAllTime = (builds, metricName, state) ->
+    calculateMetric = (builds, metricName, state) ->
       lastTimeInState = 0;
       occurences = 0
       totalTimeInState = 0
@@ -34,8 +34,25 @@ angular.module 'buildMetricsReportApp'
 
       ).value()
 
+    calculateEveryXDays = (builds, numberOfDays, metricName, state) ->
+      _(builds).sortBy('timestamp').reverse().each (referenceBuild) ->
+        day = new Date referenceBuild.timestamp
+        day.setDate(day.getDate() - numberOfDays)
+
+        buildsWithin7Days = _.filter builds, (build) ->
+          day.getTime() <= build.timestamp <= referenceBuild.timestamp
+
+        calculateMetric(buildsWithin7Days, metricName, state)
+      .value()
+
+    calculate7DaysMTTR: (builds) ->
+      calculateEveryXDays(builds, 7, '7 Days MTTR', 'SUCCESS')
+
+    calculate7DaysMTTF: (builds) ->
+      calculateEveryXDays(builds, 7, '7 Days MTTF', 'FAILURE')
+
     calculateAllTimeMTTR: (builds) ->
-      calculateAllTime(builds, 'allTimeMTTR', 'SUCCESS')
+      calculateMetric(builds, 'allTimeMTTR', 'SUCCESS')
 
     calculateAllTimeMTTF: (builds) ->
-      calculateAllTime builds, 'allTimeMTTF', 'FAILURE'
+      calculateMetric builds, 'allTimeMTTF', 'FAILURE'
