@@ -9,7 +9,7 @@
 ###
 angular.module 'buildMetricsReportApp'
   .service 'mttrService', ->
-    calculateAllTime: (builds, metricName, state) ->
+    calculateAllTime = (builds, metricName, state) ->
       lastTimeInState = 0;
       occurences = 0
       totalTimeInState = 0
@@ -35,7 +35,7 @@ angular.module 'buildMetricsReportApp'
       ).value()
 
     calculateAllTimeMTTR: (builds) ->
-      @calculateAllTime(builds, 'allTimeMTTR', 'SUCCESS')
+      calculateAllTime(builds, 'allTimeMTTR', 'SUCCESS')
 
     calculateAllTimeMTTF: (builds) ->
-      @calculateAllTime builds, 'allTimeMTTF', 'FAILURE'
+      calculateAllTime builds, 'allTimeMTTF', 'FAILURE'
