@@ -24,24 +24,21 @@ Build Metrics
 Charts:
  - [done] build time trend
  - [done] build success/failure trend
+ - [done] MTTF last 7 days trend
+ - [done] MTTR last 7 days trend
 
- - MTTF last 7 days trend
- - MTTR last 7 days trend
+ Tech debt:
+  - Parameterize job names
+  - Charts per job to use job names and ngRepeat
+  - Hook real jenkins endpoint
+  - Apply other snap api
+
+Nice to have visualizations
  - Variance/std dev of build time per segment
  - Heat map success failure per segment
-
-
-Summary (last 2 weeks)
-- build time
-  - AVG, Std dev
-- Success/Failure %
-
-
-- Relate area of code with break
-
-
-Tech debt:
- - Parameterize job names
- - Charts per job to use job names
- - Hook real jenkins endpoint
- - Apply other snap api
+ - Relate area of code with break
+ - Table Summary
+  - build time average
+  - Success/Failure %
+  - MTTF
+  - MTTR
