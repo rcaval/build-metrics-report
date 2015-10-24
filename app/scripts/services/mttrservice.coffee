@@ -15,25 +15,20 @@ angular.module 'buildMetricsReportApp'
       totalTimeInState = 0
 
       _(builds).sortBy('timestamp').each((build) ->
-        metric = {}
-        build[metricName] = metric
+        build[metricName] = 0
 
-        metric.lastTimeInState = 0
-        metric.value = 0
-        metric.occurences=0
         if build.result != state
           return if lastTimeInState !=0
 
-          metric.lastTimeInState = lastTimeInState = build.timestamp
+          lastTimeInState = build.timestamp
           return
 
         return if lastTimeInState == 0
 
         occurences++
 
-        metric.occurences = occurences
         totalTimeInState += build.timestamp - lastTimeInState
-        metric.value = if totalTimeInState == 0 then 0 else totalTimeInState/occurences
+        build[metricName] = if totalTimeInState == 0 then 0 else totalTimeInState/occurences
 
         lastTimeInState = 0
 
@@ -43,4 +38,4 @@ angular.module 'buildMetricsReportApp'
       @calculateAllTime(builds, 'allTimeMTTR', 'SUCCESS')
 
     calculateAllTimeMTTF: (builds) ->
-      @calculateAllTime builds, 'allTimeMTTR', 'FAILURE'
+      @calculateAllTime builds, 'allTimeMTTF', 'FAILURE'
