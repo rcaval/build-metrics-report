@@ -45,6 +45,15 @@
               <li><a href="#/pivot">Pivot Table</a></li>
               <li><a href="#/originaldata">Data</a></li>
             </ul>
+            <div ng-controller="RefreshCtrl">
+
+            <div class="col-md-4">
+              <input class="form-control" autofocus ng-model="QueryParams.host" type="text" name="host" value="" placeholder="Host">
+              <input class="form-control" ng-model="QueryParams.jobNames" type="text" name="jobNames" value="" placeholder="Job names (comma separated)">
+            </div>
+            <button ng-click="go()" class="btn btn-md btn-primary" name="name">Go</button>
+          </div>
+
           </div>
         </div>
       </div>
@@ -100,6 +109,7 @@
         <script src="scripts/services/jenkinsdataservice.js"></script>
         <script src="scripts/controllers/originaldata.js"></script>
         <script src="scripts/services/mttrservice.js"></script>
+        <script src="scripts/controllers/refresh.js"></script>
         <!-- endbuild -->
 </body>
 </html>
