@@ -90,4 +90,25 @@ angular.module 'buildMetricsReportApp'
           grid:
             y: show: true
 
+    $scope.weekly7DaysMTTF =options:
+      renderer: $.pivotUtilities.c3_renderers['Line Chart']
+      cols: ["week"]
+      rows: ["segment"]
+      aggregator: aggregators.Maximum(['7 Days MTTF'])
+      rendererOptions:
+        c3:
+          size: height: 350, width: 700
+          axis:
+            y:
+              label: 'MTTR (Hours)'
+              tick:
+                # values: d3.range(0, 6*60 * 60 *1000, 30 * 60 * 1000)
+                format: (d) -> Math.floor(d / (60 * 60 *1000))
+              padding: bottom: 0
+            x:
+              padding: left: 0
+          tooltip: grouped: true
+          grid:
+            y: show: true
+
     return
