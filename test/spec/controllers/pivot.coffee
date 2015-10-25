@@ -16,4 +16,5 @@ describe 'Controller: PivotCtrl', ->
       # place here mocked dependencies
     }
 
+  xit 'write tests'
   

@@ -15,3 +15,5 @@ describe 'Controller: OriginaldataCtrl', ->
     OriginaldataCtrl = $controller 'OriginaldataCtrl', {
       # place here mocked dependencies
     }
+
+  xit 'write tests'

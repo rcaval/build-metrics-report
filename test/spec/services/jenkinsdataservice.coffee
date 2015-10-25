@@ -9,3 +9,5 @@ describe 'Service: JenkinsDataService', ->
   JenkinsDataService = {}
   beforeEach inject (_JenkinsDataService_) ->
     JenkinsDataService = _JenkinsDataService_
+
+    xit 'write tests'

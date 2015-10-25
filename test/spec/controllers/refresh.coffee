@@ -10,10 +10,10 @@ describe 'Controller: RefreshCtrl', ->
   scope = {}
 
   # Initialize the controller and a mock scope
-  beforeEach inject ($controller, $rootScope) ->
+  beforeEach inject ($controller, $rootScope, $location) ->
     scope = $rootScope.$new()
     RefreshCtrl = $controller 'RefreshCtrl', {
       # place here mocked dependencies
     }
 
-  it 'should update the url query params', ->
+  xit 'should update the url query params', ->

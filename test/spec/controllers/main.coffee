@@ -15,3 +15,5 @@ describe 'Controller: MainCtrl', ->
     MainCtrl = $controller 'MainCtrl', {
       # place here mocked dependencies
     }
+
+  xit 'write tests'
