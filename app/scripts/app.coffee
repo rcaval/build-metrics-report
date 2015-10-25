@@ -35,3 +35,5 @@ angular
         controllerAs: 'originaldata'
       .otherwise
         redirectTo: '/'
+  .run ($rootScope, $location) ->
+    $rootScope.QueryParams = $location.search()
