@@ -3,7 +3,8 @@
 app = angular.module('buildMetricsReportApp')
 
 class JenkinsDataService
-  @$inject = ['$resource', '$q', 'mttrService']
+  @$inject = ['$resource', '$q', '$location','mttrService']
+
   appendDateDimensions = (build) ->
     build.date = new Date(build.timestamp)
     build.month = d3.time.format('%Y-%m') build.date
@@ -11,14 +12,21 @@ class JenkinsDataService
     build.day = d3.time.format('%Y-%m-%d') build.date
     build
 
-  constructor: ($resource, $q, mttrService) ->
+  constructor: ($resource, $q, $location, mttrService) ->
     deferred = $q.defer();
     jobs = ['1-compile', '2-functional-tests', '3-qa-deploy']
 
-    url = 'data/:job.json'
+    url = 'data/:jobName.json'
+    queryParams = $location.search()
+    if queryParams.host && queryParams.jobNames
+      jobs = _ queryParams.jobNames.split(',')
+              .map _.trim
+              .value()
+      url = "#{queryParams.host}/job/:jobName/api/json?tree=allBuilds[number,id,timestamp,result,duration]"
+      console.log url
 
     promises = _(jobs).map (jobName, jobIndex) ->
-      $resource(url, {job: jobName}, {
+      $resource(url, {jobName: jobName}, {
         query:
           isArray: true
           transformResponse: (body, headers) ->

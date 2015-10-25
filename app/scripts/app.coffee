@@ -10,7 +10,7 @@ angular
     'ngTouch',
     'ui.grid'
   ]
-  .config ($routeProvider) ->
+  .config ($routeProvider,$httpProvider) ->
     $routeProvider
       .when '/',
         templateUrl: 'views/main.html'
@@ -26,5 +26,8 @@ angular
         controllerAs: 'originaldata'
       .otherwise
         redirectTo: '/'
+
+    $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
   .run ($rootScope, $location) ->
     $rootScope.QueryParams = $location.search()
