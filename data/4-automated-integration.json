@@ -1,0 +1,116 @@
+{
+  "builds": [
+    {
+      "duration": 145496,
+      "id": "16",
+      "number": 16,
+      "result": "FAILURE",
+      "timestamp": 1445369935269
+    },
+    {
+      "duration": 33542,
+      "id": "15",
+      "number": 15,
+      "result": "FAILURE",
+      "timestamp": 1445293106350
+    },
+    {
+      "duration": 143126,
+      "id": "14",
+      "number": 14,
+      "result": "SUCCESS",
+      "timestamp": 1445024961255
+    },
+    {
+      "duration": 140585,
+      "id": "13",
+      "number": 13,
+      "result": "FAILURE",
+      "timestamp": 1445022023238
+    },
+    {
+      "duration": 146815,
+      "id": "12",
+      "number": 12,
+      "result": "FAILURE",
+      "timestamp": 1445021801122
+    },
+    {
+      "duration": 137629,
+      "id": "11",
+      "number": 11,
+      "result": "SUCCESS",
+      "timestamp": 1444942630415
+    },
+    {
+      "duration": 180888,
+      "id": "10",
+      "number": 10,
+      "result": "FAILURE",
+      "timestamp": 1444767676615
+    },
+    {
+      "duration": 351551,
+      "id": "9",
+      "number": 9,
+      "result": "FAILURE",
+      "timestamp": 1444335710752
+    },
+    {
+      "duration": 26180,
+      "id": "8",
+      "number": 8,
+      "result": "FAILURE",
+      "timestamp": 1444335467566
+    },
+    {
+      "duration": 356812,
+      "id": "7",
+      "number": 7,
+      "result": "FAILURE",
+      "timestamp": 1444334049241
+    },
+    {
+      "duration": 24380,
+      "id": "6",
+      "number": 6,
+      "result": "FAILURE",
+      "timestamp": 1444333773754
+    },
+    {
+      "duration": 357536,
+      "id": "5",
+      "number": 5,
+      "result": "FAILURE",
+      "timestamp": 1444332267216
+    },
+    {
+      "duration": 24287,
+      "id": "4",
+      "number": 4,
+      "result": "SUCCESS",
+      "timestamp": 1444331000357
+    },
+    {
+      "duration": 24382,
+      "id": "3",
+      "number": 3,
+      "result": "SUCCESS",
+      "timestamp": 1444330833966
+    },
+    {
+      "duration": 28385,
+      "id": "2",
+      "number": 2,
+      "result": "SUCCESS",
+      "timestamp": 1444330429550
+    },
+    {
+      "duration": 261553,
+      "id": "1",
+      "number": 1,
+      "result": "SUCCESS",
+      "timestamp": 1444325475435
+    }
+  ]
+}
