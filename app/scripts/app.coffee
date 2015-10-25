@@ -1,13 +1,5 @@
 'use strict'
 
-###*
- # @ngdoc overview
- # @name buildMetricsReportApp
- # @description
- # # buildMetricsReportApp
- #
- # Main module of the application.
-###
 angular
   .module 'buildMetricsReportApp', [
     'ngAnimate',
@@ -24,7 +16,6 @@ angular
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
         controllerAs: 'main'
-
       .when '/pivot',
         templateUrl: 'views/pivot.html'
         controller: 'PivotCtrl'

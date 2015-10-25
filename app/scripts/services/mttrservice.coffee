@@ -1,12 +1,5 @@
 'use strict'
 
-###*
- # @ngdoc service
- # @name buildMetricsReportApp.mttrService
- # @description
- # # mttrService
- # Service in the buildMetricsReportApp.
-###
 angular.module 'buildMetricsReportApp'
   .service 'mttrService', ->
     calculateMetric = (builds, metricName, state) ->

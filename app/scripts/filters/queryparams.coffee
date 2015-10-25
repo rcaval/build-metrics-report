@@ -1,13 +1,5 @@
 'use strict'
 
-###*
- # @ngdoc filter
- # @name buildMetricsReportApp.filter:queryParams
- # @function
- # @description
- # # queryParams
- # Filter in the buildMetricsReportApp.
-###
 angular.module 'buildMetricsReportApp'
   .filter 'queryParams', ->
     (opts) ->

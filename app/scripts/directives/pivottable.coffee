@@ -1,11 +1,5 @@
 'use strict'
 
-###*
- # @ngdoc directive
- # @name buildMetricsReportApp.directive:pivotTable
- # @description
- # # pivotTable
-###
 angular.module 'buildMetricsReportApp'
   .directive 'pivotTable', ->
     scope: { datasource: '=', options: '=', pivotUi: '=', showConfig: '=' }
