@@ -28,7 +28,7 @@ class JenkinsDataService
         jsonp: 'JSON_CALLBACK'
         tree: "#{buildsParams}[number,id,timestamp,result,duration]"
     else
-      jobs = ['1-compile', '2-functional-tests', '3-qa-deploy']
+      jobs = ['1-compile', '2-functional-tests', '3-qa-deploy', '4-automated-integration']
       method= 'GET'
       url = 'data/:jobName.json'
       params = {}
