@@ -11,8 +11,8 @@ angular.module 'buildMetricsReportApp'
     $scope.jobs = jenkinsDataService.jobs
 
     sorter = (attr) ->
-      if(attr == "result")
-        $.pivotUtilities.sortAs ["SUCCESS", "UNSTABLE", "FAILURE", "ABORTED"]
+      if(attr == 'result')
+        $.pivotUtilities.sortAs ['SUCCESS', 'UNSTABLE', 'FAILURE', 'ABORTED']
       else if(attr == 'segment')
         $.pivotUtilities.sortAs $scope.jobs
 
@@ -26,7 +26,7 @@ angular.module 'buildMetricsReportApp'
       rows: ['segment']
       cols: ['week']
       sorters: sorter
-      aggregatorName: "Duration"
+      aggregatorName: 'Duration'
       aggregator: aggregatorsTamplates.average(dateFormat('%M:%s'))(['duration'])
       rendererOptions:
         c3:
@@ -49,14 +49,14 @@ angular.module 'buildMetricsReportApp'
       renderer: $.pivotUtilities.c3_renderers['Stacked Bar Chart']
       rows: ['result']
       cols: ['week']
-      aggregator: aggregators["Count as Fraction of Columns"]()
+      aggregator: aggregators['Count as Fraction of Columns']()
       sorters: sorter
       rendererOptions:
         c3:
           size: height: 150, width: 300
           axis:
             y:
-              tick: format: numberFormat(digitsAfterDecimal:1, scaler: 100, suffix: "%")
+              tick: format: numberFormat(digitsAfterDecimal:1, scaler: 100, suffix: '%')
               padding: top: 0
             x:
               padding: left: 0
@@ -65,14 +65,13 @@ angular.module 'buildMetricsReportApp'
           data:
             type: 'bar', order: null
             colors:
-              SUCCESS: "#109618"
-              FAILURE: "#dc3912"
-              ABORTED: "#333"
-              UNSTABLE: "#ff9900"
+              SUCCESS: '#109618'
+              FAILURE: '#dc3912'
+              ABORTED: '#333'
+              UNSTABLE: '#ff9900'
           bar: width: ratio: 1
           tooltip: grouped: true
           legend: show: false
-
 
     $scope.successRateOptionsFor = (segment) ->
       _.assign {}, $scope.weeklySucessRate.defaultOptions,
@@ -81,8 +80,8 @@ angular.module 'buildMetricsReportApp'
 
     $scope.weekly7DaysMTTR = options:
       renderer: $.pivotUtilities.c3_renderers['Line Chart']
-      cols: ["week"]
-      rows: ["segment"]
+      cols: ['week']
+      rows: ['segment']
       sorters: sorter
       aggregator: aggregators.Maximum(['7 Days MTTR'])
       rendererOptions:
@@ -91,7 +90,7 @@ angular.module 'buildMetricsReportApp'
           axis:
             y:
               tick: format:
-                  (d) -> d3.time.format("%X") new Date(2012, 0, 0, 0, 0,0, d)
+                  (d) -> d3.time.format('%X') new Date(2012, 0, 0, 0, 0,0, d)
               padding: bottom: 0
             x:
               padding: left: 0
@@ -103,8 +102,8 @@ angular.module 'buildMetricsReportApp'
 
     $scope.weekly7DaysMTTF =options:
       renderer: $.pivotUtilities.c3_renderers['Line Chart']
-      cols: ["week"]
-      rows: ["segment"]
+      cols: ['week']
+      rows: ['segment']
       sorters: sorter
       aggregator: aggregators.Maximum(['7 Days MTTF'])
       rendererOptions:
