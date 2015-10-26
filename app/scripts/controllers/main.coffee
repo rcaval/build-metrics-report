@@ -12,7 +12,7 @@ angular.module 'buildMetricsReportApp'
 
     sorter = (attr) ->
       if(attr == "result")
-        $.pivotUtilities.sortAs ["SUCCESS","FAILURE", "ABORTED"]
+        $.pivotUtilities.sortAs ["SUCCESS", "UNSTABLE", "FAILURE", "ABORTED"]
       else if(attr == 'segment')
         $.pivotUtilities.sortAs $scope.jobs
 
@@ -33,9 +33,7 @@ angular.module 'buildMetricsReportApp'
           size: height: 350, width: 700
           axis:
             y:
-              # label: 'Duration'
               tick:
-                # values: d3.range(0, 30*60000, 2*60000)
                 format: (d) -> d3.time.format('%Mm %Ss') new Date(d)
             x:
               label: ''
@@ -61,18 +59,20 @@ angular.module 'buildMetricsReportApp'
               tick: format: numberFormat(digitsAfterDecimal:1, scaler: 100, suffix: "%")
               padding: top: 0
             x:
-              show: false
-              label: ''
               padding: left: 0
-
           grid:
             y: show: true
           data:
-            type: 'bar', order: 'asc'
+            type: 'bar', order: null
+            colors:
+              SUCCESS: "#109618"
+              FAILURE: "#dc3912"
+              ABORTED: "#333"
+              UNSTABLE: "#ff9900"
           bar: width: ratio: 1
           tooltip: grouped: true
           legend: show: false
-          color: pattern: [ "#109618", "#dc3912", "#333", "#ff9900" ]
+
 
     $scope.successRateOptionsFor = (segment) ->
       _.assign {}, $scope.weeklySucessRate.defaultOptions,
@@ -95,6 +95,8 @@ angular.module 'buildMetricsReportApp'
               padding: bottom: 0
             x:
               padding: left: 0
+              type: 'timeseries'
+              tick: format: '%Y-%U'
           tooltip: grouped: true
           grid:
             y: show: true
@@ -116,6 +118,8 @@ angular.module 'buildMetricsReportApp'
               padding: bottom: 0
             x:
               padding: left: 0
+              type: 'timeseries'
+              tick: format: '%Y-%U'
           tooltip: grouped: true
           grid:
             y: show: true
