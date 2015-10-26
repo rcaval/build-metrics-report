@@ -14,20 +14,29 @@ class JenkinsDataService
 
   constructor: ($resource, $q, $location, mttrService) ->
     deferred = $q.defer();
-    jobs = ['1-compile', '2-functional-tests', '3-qa-deploy']
 
-    url = 'data/:jobName.json'
     queryParams = $location.search()
+
     if queryParams.host && queryParams.jobNames
       jobs = _ queryParams.jobNames.split(',')
               .map _.trim
               .value()
-      url = "#{queryParams.host}/job/:jobName/api/json?tree=allBuilds[number,id,timestamp,result,duration]"
-      console.log url
+      url = "#{queryParams.host}/job/:jobName/api/json"
+      method= 'JSONP'
+      params=
+        jsonp: 'JSON_CALLBACK'
+        tree: 'allBuilds[number,id,timestamp,result,duration]'
+    else
+      jobs = ['1-compile', '2-functional-tests', '3-qa-deploy']
+      method= 'GET'
+      url = 'data/:jobName.json'
+      params = {}
 
     promises = _(jobs).map (jobName, jobIndex) ->
       $resource(url, {jobName: jobName}, {
         query:
+          method: method
+          params: params
           isArray: true
           transformResponse: (body, headers) ->
             responseBody = angular.fromJson(body)
