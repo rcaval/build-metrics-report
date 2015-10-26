@@ -20,7 +20,7 @@ angular.module 'buildMetricsReportApp'
             y:
               # label: 'Duration'
               tick:
-                values: d3.range(0, 30*60000, 2*60000)
+                # values: d3.range(0, 30*60000, 2*60000)
                 format: (d) -> d3.time.format('%Mm %Ss') new Date(d)
             x:
               label: ''
@@ -77,7 +77,7 @@ angular.module 'buildMetricsReportApp'
           axis:
             y:
               tick:
-                values: d3.range(0, 6*60 * 60 *1000, 30 * 60 * 1000)
+                # values: d3.range(0, 6*60 * 60 *1000, 30 * 60 * 1000)
                 format: (d) -> d3.time.format("%X") new Date(2012, 0, 0, 0, 0,0, d)
               padding: bottom: 0
             x:
