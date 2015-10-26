@@ -6,7 +6,10 @@ angular.module 'buildMetricsReportApp'
     aggregators = $.pivotUtilities.aggregators
     dateFormat = $.pivotUtilities.derivers.dateFormat
     numberFormat = $.pivotUtilities.numberFormat
+
     $scope.data = jenkinsDataService.data
+    $scope.jobs = jenkinsDataService.jobs
+
     $scope.weeklyBuildTime = options:
       renderer: $.pivotUtilities.c3_renderers['Area Chart']
       rows: ['segment']

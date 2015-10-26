@@ -62,5 +62,6 @@ class JenkinsDataService
       deferred.resolve _.flatten(resultArray)
 
     @data = deferred.promise
+    @jobs = jobs
 
 app.service 'jenkinsDataService', JenkinsDataService
