@@ -36,7 +36,7 @@ angular.module 'buildMetricsReportApp'
     $scope.weeklySucessRate = defaultOptions:
       renderer: $.pivotUtilities.c3_renderers['Stacked Bar Chart']
       rows: ['segment', 'result']
-      cols: ['day']
+      cols: ['week']
       aggregator: aggregators["Count as Fraction of Columns"]()
       filter: (build) ->
         build.segment == '1-compile'
