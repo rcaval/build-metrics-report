@@ -40,7 +40,7 @@ class JenkinsDataService
           isArray: true
           transformResponse: (body, headers) ->
             responseBody = angular.fromJson(body)
-            responseBody.builds
+            responseBody.builds ?? responseBody.allBuilds
       }
       ).query((builds) ->
         result = _(builds)
