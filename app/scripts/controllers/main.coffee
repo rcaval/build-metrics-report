@@ -61,14 +61,10 @@ angular.module 'buildMetricsReportApp'
           legend: show: false
           color: pattern: [ "#109618", "#dc3912", "#333", "#ff9900" ]
 
-    successRateOptionsFor = (segment) ->
+    $scope.successRateOptionsFor = (segment) ->
       _.assign {}, $scope.weeklySucessRate.defaultOptions,
         filter: (build) ->
           build.segment == segment
-
-    $scope.weeklySucessRate.compile = successRateOptionsFor '1-compile'
-    $scope.weeklySucessRate.functional = successRateOptionsFor '2-functional-tests'
-    $scope.weeklySucessRate.qaDeploy = successRateOptionsFor '3-qa-deploy'
 
     $scope.weekly7DaysMTTR = options:
       renderer: $.pivotUtilities.c3_renderers['Line Chart']

@@ -28,9 +28,9 @@ Charts:
  - [done] MTTR last 7 days trend
 
  Tech debt:
-  - Parameterize job names
-  - Charts per job to use job names and ngRepeat
-  - Hook real jenkins endpoint
+  - [done] Parameterize job names
+  - [done] Charts per job to use job names and ngRepeat
+  - [done] Hook real jenkins endpoint
   - allBuilds vs last 100 builds
   - Apply other snap api
 
