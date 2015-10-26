@@ -18,6 +18,7 @@ class JenkinsDataService
     queryParams = $location.search()
 
     if queryParams.host && queryParams.jobNames
+      buildsParams = queryParams.allBuilds || 'builds'
       jobs = _ queryParams.jobNames.split(',')
               .map _.trim
               .value()
@@ -25,7 +26,7 @@ class JenkinsDataService
       method= 'JSONP'
       params=
         jsonp: 'JSON_CALLBACK'
-        tree: 'allBuilds[number,id,timestamp,result,duration]'
+        tree: "#{buildsParams}[number,id,timestamp,result,duration]"
     else
       jobs = ['1-compile', '2-functional-tests', '3-qa-deploy']
       method= 'GET'
