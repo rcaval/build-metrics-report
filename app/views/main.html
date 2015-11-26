@@ -1,18 +1,24 @@
 <div class="row">
 
   <div class="panel panel-default">
-     <div class="panel-heading">Mean Time To Recover (MTTR), last 7 days, Weekly Trend </div>
-    <div class="panel-body chart" pivot-table datasource="data" options="weekly7DaysMTTR.options" pivot-ui="false"></div>
+     <div class="panel-heading">Mean Time To Recover (MTTR), last 7 days, Weekly Trend
+     <br/><small>Once the build is red, how long does it take for the status to go back to green?
+       Zero means it was never red that week, or it was always red that week. "Last 7 days" means it is like a moving average accounting only for builds in the last 7 days.</small>
+     </div>
+    <div class="panel-body chart" pivot-table datasource="data" options="weekly7DaysMTTR.options" pivot-ui="false">
+    </div>
   </div>
 
   <div class="panel panel-default">
-     <div class="panel-heading">Build Time</div>
+     <div class="panel-heading">Build Time <br/><small>Y-axis: time in minutes, X-axis: week of year</small></div>
     <div class="panel-body chart" pivot-table datasource="data" options="weeklyBuildTime.options" pivot-ui="false"></div>
   </div>
 
   <div class="panel panel-default">
-    <div class="panel-heading">Build Success Rate</div>
+    <div class="panel-heading">Build Success Rate <br/><small>Y-axis:# of builds per status over total builds, X-axis: week of year</small></div>
     <div class="panel-body">
+      <div></div>
+
       <div class="col-md-6" ng-repeat="job in jobs">
         <div class="panel panel-default">
           <div class="panel-heading">{{job}} weekly</div>
@@ -23,7 +29,10 @@
   </div>
 
     <div class="panel panel-default">
-       <div class="panel-heading">Mean Time To Failure (MTTF), last 7 days, Weekly Trend </div>
+       <div class="panel-heading">Mean Time To Failure (MTTF), last 7 days, Weekly Trend
+         <br/><small>Similar to MTTR: Once the build is green, how long does it take for the status to go to red? Like that "X days without accidents" sign.
+           Zero means it was never green that week, or it was always green that week. "Last 7 days" means it is like a moving average accounting only for builds in the last 7 days.</small>
+       </div>
       <div class="panel-body chart" pivot-table datasource="data" options="weekly7DaysMTTF.options" pivot-ui="false"></div>
     </div>
 
