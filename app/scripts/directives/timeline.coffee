@@ -11,7 +11,7 @@ angular.module 'buildMetricsReportApp'
             .domain(['SUCCESS','FAILURE','ABORTED', 'UNSTABLE']);
 
         chart = d3.timeline()
-          .tickFormat({format: d3.time.format("%b %d"), tickTime: d3.time.days, tickInterval: 1, numTicks: 10})
+          .tickFormat({format: d3.time.format("%b %d"), tickTime: d3.time.days, tickInterval: 1})
           .stack()
           .colors( colorScale )
           .colorProperty('status')
