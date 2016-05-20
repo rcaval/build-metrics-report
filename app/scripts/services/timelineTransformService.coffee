@@ -6,7 +6,7 @@ angular.module 'buildMetricsReportApp'
       buildTimes = (builds) ->
         _(builds).map((build) -> {
               starting_time: build.timestamp
-              ending_time: build.timestamp + build.stateDuration - 1
+              ending_time: build.timestamp + build.stateDuration
               status: build.result
             }).value()
       _(resources)
