@@ -5,12 +5,18 @@ Build metric reports form jenkins.
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.12.1.
 
-## Build & development
 
+## Install
+
+Run `npm install`
+
+It might require you to install [bower](http://bower.io/#install-bower).
+
+## Build & development
 
 Run `npm run build` for building and `npm start` for preview.
 
-It might require you to install the compass gem.
+It might require you to install the [compass](http://compass-style.org/install/) gem.
 
 ## Testing
 
