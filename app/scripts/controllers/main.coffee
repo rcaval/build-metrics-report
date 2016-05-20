@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'buildMetricsReportApp'
-  .controller 'MainCtrl', ($scope, $http, jenkinsDataService) ->
+  .controller 'MainCtrl', ($scope, $http, jenkinsDataService, $q, timelineTransformService) ->
     aggregatorsTamplates = $.pivotUtilities.aggregatorTemplates
     aggregators = $.pivotUtilities.aggregators
     dateFormat = $.pivotUtilities.derivers.dateFormat
@@ -10,9 +10,14 @@ angular.module 'buildMetricsReportApp'
     $scope.data = jenkinsDataService.data
     $scope.jobs = jenkinsDataService.jobs
 
+    timelineDeferred = $q.defer()
+    $scope.timelineData = timelineDeferred.promise
+
+
     $scope.data.then (d) ->
       console.log d
-      
+      timelineDeferred.resolve timelineTransformService.transform(d)
+
     sorter = (attr) ->
       if(attr == 'result')
         $.pivotUtilities.sortAs ['SUCCESS', 'UNSTABLE', 'FAILURE', 'ABORTED']
