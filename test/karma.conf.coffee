@@ -32,6 +32,7 @@ module.exports = (config) ->
       'bower_components/lodash/lodash.js'
       'bower_components/jqueryui/jquery-ui.js'
       'bower_components/pivottable/dist/pivot.js'
+      'bower_components/d3-timeline/src/d3-timeline.js'
       'bower_components/angular-mocks/angular-mocks.js'
       # endbower
       # bower:coffee

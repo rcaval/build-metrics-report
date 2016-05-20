@@ -12,9 +12,10 @@
     "angular-ui-grid": "~3.1.1",
     "bootstrap-sass-official": "^3.2.0",
     "c3": "~0.4.10",
-    "d3": "~3.5.6",
+    "d3": "~3.4.3",
     "lodash": "~3.10.1",
-    "pivottable": "~1.6.3"
+    "pivottable": "~1.6.3",
+    "d3-timeline": "0.0.5"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.5"

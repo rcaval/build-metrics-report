@@ -92,4 +92,13 @@ body {
   .chart p {
     display: none;
   }
+
+  .axis  {
+    path,
+    line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+  }
 }
