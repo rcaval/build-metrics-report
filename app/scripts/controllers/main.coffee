@@ -10,6 +10,9 @@ angular.module 'buildMetricsReportApp'
     $scope.data = jenkinsDataService.data
     $scope.jobs = jenkinsDataService.jobs
 
+    $scope.data.then (d) ->
+      console.log d
+      
     sorter = (attr) ->
       if(attr == 'result')
         $.pivotUtilities.sortAs ['SUCCESS', 'UNSTABLE', 'FAILURE', 'ABORTED']

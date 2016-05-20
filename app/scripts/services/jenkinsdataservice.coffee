@@ -3,7 +3,7 @@
 app = angular.module('buildMetricsReportApp')
 
 class JenkinsDataService
-  @$inject = ['$resource', '$q', '$location','mttrService']
+  @$inject = ['$resource', '$q', '$location','mttrService', 'stateDurationService']
 
   appendDateDimensions = (build) ->
     build.date = new Date(build.timestamp)
@@ -12,7 +12,7 @@ class JenkinsDataService
     build.day = d3.time.format('%Y-%m-%d') build.date
     build
 
-  constructor: ($resource, $q, $location, mttrService) ->
+  constructor: ($resource, $q, $location, mttrService, stateDurationService) ->
     deferred = $q.defer();
 
     queryParams = $location.search()
@@ -55,6 +55,7 @@ class JenkinsDataService
         mttrService.calculateAllTimeMTTF result
         mttrService.calculate7DaysMTTR result
         mttrService.calculate7DaysMTTF result
+        stateDurationService.appendStateDuration result
         result
       ).$promise
     .value()
