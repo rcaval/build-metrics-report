@@ -15,7 +15,7 @@
     "d3": "~3.5.0",
     "lodash": "~3.10.1",
     "pivottable": "~1.6.3",
-    "d3-timeline": "0.0.5"
+    "d3-timeline": "jiahuang/d3-timeline#master"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.5"

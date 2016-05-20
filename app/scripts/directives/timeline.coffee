@@ -11,12 +11,13 @@ angular.module 'buildMetricsReportApp'
             .domain(['SUCCESS','FAILURE','ABORTED', 'UNSTABLE']);
 
         chart = d3.timeline()
-          .tickFormat({format: d3.time.format("%b %d"), tickTime: d3.time.days, tickInterval: 1})
+          .tickFormat({format: d3.time.format("%m/%d"), tickTime: d3.time.hours, tickInterval: 24})
           .stack()
           .colors( colorScale )
           .colorProperty('status')
           .margin({left:160, right:30, top:0, bottom:0})
-          .width(700)
+          .width(11000)
+          .showAxisCalendarYear()
           .showTimeAxisTick()
           .labelFormat((l) -> l)
 
