@@ -15,7 +15,8 @@ angular.module 'buildMetricsReportApp'
           .stack()
           .colors( colorScale )
           .colorProperty('status')
-          .margin({left:70, right:30, top:0, bottom:0})
+          .margin({left:160, right:30, top:0, bottom:0})
+          .width(700)
           .showTimeAxisTick()
           .labelFormat((l) -> l)
 
