@@ -5,8 +5,9 @@ angular.module 'buildMetricsReportApp'
     transform: (resources) ->
       buildTimes = (builds) ->
         _(builds).map((build) -> {
-              starting_time: build.timestamp,
-              ending_time: build.timestamp + build.stateDuration
+              starting_time: build.timestamp
+              ending_time: build.timestamp + build.stateDuration - 1
+              status: build.result
             }).value()
       _(resources)
         .groupBy('segment')
