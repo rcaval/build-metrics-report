@@ -8,13 +8,13 @@ version 0.12.1.
 ## Build & development
 
 
-Run `grunt` for building and `grunt serve` for preview.
+Run `npm run build` for building and `npm start` for preview.
 
 It might require you to install the compass gem.
 
 ## Testing
 
-Running `grunt test` will run the unit tests with karma.
+Running `npm test` will run the unit tests with karma.
 
 
 ## Backlog
