@@ -5,8 +5,6 @@ angular.module 'buildMetricsReportApp'
     scope: { datasource: '=' }
     link: (scope, element, attrs) ->
       scope.datasource.then (result) ->
-        console.log '========result========', result
-
         colorScale = d3.scale.ordinal().range(['green','red','gray','yellow'])
             .domain(['SUCCESS','FAILURE','ABORTED', 'UNSTABLE']);
 
@@ -21,5 +19,8 @@ angular.module 'buildMetricsReportApp'
           .showTimeAxisTick()
           .labelFormat((l) -> l)
 
-        svg = d3.select($(element)[0]).append('svg').attr('width', 700)
-        .datum(result).call(chart)
+        svg = d3.select($(element)[0])
+          .append('svg')
+          .attr('width', 700)
+          .datum(result).call(chart)
+          .select("svg.scrollable > g").attr('transform', 'translate(-10300,0)')
