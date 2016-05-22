@@ -101,7 +101,10 @@ body {
       shape-rendering: crispEdges;
     }
     text {
-      font-size: 8pt;
+      font-size: 70%;
     }
+  }
+  .timeline-label {
+    font-size: .8em;
   }
 }

@@ -28,27 +28,17 @@ Build Metrics
 
 Charts:
 
-- [done] build time trend
-- [done] build success/failure trend
-- [done] MTTF last 7 days trend
-- [done] MTTR last 7 days trend
+- build time trend
+- build success/failure trend
+- MTTF last 7 days trend
+- MTTR last 7 days trend
+- Heat map success failure per segment
 
-  Tech debt:
+- Tech debt:
 
-  - [done] Parameterize job names
-  - [done] Charts per job to use job names and ngRepeat
-  - [done] Hook real jenkins endpoint
-  - allBuilds vs last 100 builds
-  - Apply other snap api
+  - Use snap-ci api
 
 Nice to have visualizations
 
 - Variance/std dev of build time per segment
-- Heat map success failure per segment
 - Relate area of code with break
-- Table Summary
-
-  - build time average
-  - Success/Failure %
-  - MTTF
-  - MTTR
