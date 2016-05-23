@@ -100,8 +100,12 @@ body {
       stroke: black;
       shape-rendering: crispEdges;
     }
+    .domain {
+      stroke-dasharray: none;
+    }
     text {
       font-size: 70%;
+      transform: translate(0, 2px);
     }
   }
   .timeline-label {
